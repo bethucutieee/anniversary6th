@@ -133,6 +133,8 @@ body {
     right: 12%;
     top: 25%;
     bottom: 17%;
+    color: #ffffff;
+    text-shadow: 0 1px 3px rgba(20, 10, 35, 0.75);
 
     display: flex;
     flex-direction: column;
@@ -260,6 +262,8 @@ body {
     right: 18.5%;
     top: 22%;
     bottom: 14%;
+    color: #ffffff;
+    text-shadow: 0 1px 3px rgba(20, 10, 35, 0.75);
 
     display: flex;
     flex-direction: column;
@@ -302,4 +306,8 @@ body {
         animation-duration: 0.01ms !important;
         transition-duration: 0.01ms !important;
     }
+}
+.letter-line {
+    color: #ffffff;
+    text-shadow: 0 1px 3px rgba(20, 10, 35, 0.75);
 }
