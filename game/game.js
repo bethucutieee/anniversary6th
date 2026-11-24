@@ -557,7 +557,7 @@ function showAIMEffect() {
                                     document.body.classList.add("aim-fade-out");
 
                                     setTimeout(() => {
-                                        window.location.href = "../index.html";
+                                        window.location.href = "../letter.html";
                                     }, 1300);
 
                                 }, 1150);
