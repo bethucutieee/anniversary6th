@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLOCK</title>
+    <link rel="stylesheet" href="game.css">
+</head>
+
+<body>
+
+    <main id="gameMenu" class="game-menu">
+
+        <!-- Title -->
+        <div class="title-area">
+            <h1>BLOCK</h1>
+            
+        <p class="subtitle aim-effect">
+    <span class="aim-word"><span class="aim-initial">A</span><span class="aim-rest">GAPE</span></span>
+    <span class="aim-dot">·</span>
+    <span class="aim-word"><span class="aim-initial">I</span><span class="aim-rest">STANTE</span></span>
+    <span class="aim-dot">·</span>
+    <span class="aim-word"><span class="aim-initial">M</span><span class="aim-rest">ANQUES</span></span>
+        </p>
+
+        </div>
+
+        <!-- Menu -->
+        <div class="menu-buttons">
+
+            <button id="startButton" class="menu-button start">
+                <span class="button-icon">▶</span>
+                <span>START</span>
+            </button>
+
+            <button class="menu-button">
+                <span class="button-icon">⚙</span>
+                <span>SETTING</span>
+            </button>
+
+            <button class="menu-button">
+                <span class="button-icon">◈</span>
+                <span>OPTION</span>
+            </button>
+
+            <button id="quitButton" class="menu-button">
+                <span class="button-icon">×</span>
+                <span>QUIT</span>
+            </button>
+
+        </div>
+
+        <div class="menu-version">SYSTEM // 01</div>
+
+    </main>
+
+
+<!-- BREAKOUT GAME -->
+<section id="gameScreen" class="game-screen hidden">
+    <canvas id="gameCanvas"></canvas>
+
+    <div class="game-hud">
+        <span>BLOCK // 01</span>
+        <span id="blocksLeft">BLOCKS: 0</span>
+    </div>
+
+    <button id="backButton" class="back-button">✕</button>
+
+    
+<!-- COMPLETE SCREEN -->
+<section id="completeScreen" class="complete-screen hidden">
+    
+<div class="complete-heart pixel-heart" aria-hidden="true">
+    
+<svg viewBox="0 0 16 15"
+     class="pixel-heart-svg"
+     shape-rendering="crispEdges"
+     xmlns="http://www.w3.org/2000/svg">
+
+    <defs>
+        <linearGradient id="pixelHeartColor"
+                        x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#EEDCFF"/>
+            <stop offset="48%" stop-color="#BD91FF"/>
+            <stop offset="100%" stop-color="#8750D8"/>
+        </linearGradient>
+    </defs>
+
+    <!-- Viền pixel đen tím, đối xứng -->
+    <path fill="#21172F" d="
+    M2 0 H6 V1 H10 V0 H14 V1 H15 V2
+    H16 V9 H15 V11 H13 V12 H11 V13
+    H9 V14 H7 V13 H5 V12 H3 V11
+    H1 V9 H0 V2 H1 V1 H2 Z"/>
+
+    <!-- Mặt tim pixel -->
+    <path fill="url(#pixelHeartColor)" d="
+    M2 1 H6 V2 H7 V3 H9 V2 H10 V1 H14
+    V2 H15 V9 H14 V10 H12 V11 H10 V12
+    H9 V13 H7 V12 H6 V11 H4 V10 H2
+    V9 H1 V2 H2 Z"/>
+
+    <!-- Điểm sáng pixel ở góc trái -->
+    <path fill="#FFFFFF" d="
+        M2 2 H5 V3 H3 V5 H2 Z"/>
+
+    <rect x="6" y="2" width="1" height="1"
+          fill="#F8EEFF"/>
+
+    <!-- Điểm phản sáng bên phải -->
+    <rect x="12" y="3" width="1" height="1"
+          fill="#E0C9FF"/>
+
+    </svg>
+
+    </div> 
+        <h2>COMPLETE</h2>
+    
+<div id="claimReward" class="claim-reward">
+    <p class="claim-text">CLAIM YOUR REWARD</p>
+
+    <button id="giftButton" class="gift-button" type="button" aria-label="Open your gift">
+        <span class="gift-box">
+            <span class="gift-lid"></span>
+            <span class="gift-ribbon"></span>
+            <span class="gift-bow">♡</span>
+        </span>
+    </button>
+</div>
+</section>
+
+</section>
+
+    <script src="game.js"></script>
+</body>
+</html>

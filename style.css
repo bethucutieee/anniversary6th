@@ -1,0 +1,305 @@
+@font-face {
+    font-family: 'Halimun';
+    src: url('./Halimun.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: #080b24;
+    color: #f3efff;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+/* GALAXY BACKGROUND */
+
+.anniversary-page {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 70px 20px;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            rgba(5, 7, 28, 0.25),
+            rgba(5, 7, 28, 0.45)
+        ),
+        url("images/letter-background.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.galaxy-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(151, 133, 255, 0.13),
+            transparent 55%
+        );
+
+    z-index: 0;
+}
+
+/* LETTER SECTION */
+
+.letter-section {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    max-width: 1200px;
+    margin-inline: auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* TITLE */
+
+.anniversary-title {
+    font-family: 'Halimun', cursive;
+    font-size: 60px;
+    font-weight: normal;
+    color: #fff5ff;
+    text-align: center;
+    line-height: 1.2; 
+}
+
+.anniversary-title span {
+    display: block;
+    margin-top: 8px;
+    font-size: 0.55em;
+    letter-spacing: 5px;
+    color: #c9c0ff;
+}
+
+/* LETTER FRAME */
+
+.letter-frame {
+    position: relative;
+
+    width: min(1100px, 94vw);
+    aspect-ratio: 1672 / 941;
+
+    align-self: center;
+    flex-shrink: 0;
+
+    margin: 45px auto 0;
+    padding: 0;
+
+    background-image: url("images/letter-frame.png");
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    opacity: 0;
+    transform: translateY(35px) scale(0.96);
+
+    animation: letterAppear 1.4s ease forwards;
+    animation-delay: 1.5s;
+}
+
+/* LETTER CONTENT */
+
+.letter-content {
+    position: absolute;
+    z-index: 2;
+
+    left: 22%;
+    right: 12%;
+    top: 25%;
+    bottom: 17%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    color: #292744;
+    text-align: left;
+
+    scrollbar-width: thin;
+    scrollbar-color: rgba(220, 205, 255, 0.5) transparent;
+}
+
+/* Thanh cuộn */
+.letter-content::-webkit-scrollbar {
+    width: 4px;
+}
+
+.letter-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.letter-content::-webkit-scrollbar-thumb {
+    background: rgba(220, 205, 255, 0.5);
+    border-radius: 10px;
+}
+
+.letter-heading {
+    width: 100%;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(18px, 1.8vw, 27px);
+    font-weight: 600;
+    text-align: left;
+    margin-bottom: 16px;
+    color: #555078;
+}
+
+.letter-text {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    font-size: clamp(15px, 1.3vw, 19px);
+    line-height: 1.5;
+    font-weight: 500;
+    text-align: left;
+}
+
+/* TEXT REVEAL */
+
+.letter-heading,
+.letter-line {
+    opacity: 0;
+    transform: translateY(12px);
+    filter: blur(3px);
+
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s ease,
+        filter 0.9s ease;
+}
+
+.letter-heading.show,
+.letter-line.show {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+}
+
+.letter-signature {
+    width: 100%;
+    margin-top: 12px;
+    margin-bottom: 0;
+
+    text-align: right !important;
+    font-style: italic;
+    font-weight: 600;
+}
+
+/* ANIMATIONS */
+
+@keyframes titleAppear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes letterAppear {
+    from {
+        opacity: 0;
+        transform: translateY(35px) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 600px) {
+
+    .anniversary-page {
+        padding: 50px 12px;
+    }
+
+    .anniversary-title{
+        font-size: clamp(52px, 13vw, 76px);
+        line-height: 1.1;
+    }
+
+    .letter-content {
+    left: 18.5%;
+    right: 18.5%;
+    top: 22%;
+    bottom: 14%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    text-align: left;
+}
+
+.letter-heading {
+    font-size: clamp(11px, 3vw, 17px);
+    margin-bottom: 5px;
+}
+
+.letter-text {
+    font-size: clamp(8px, 2vw, 12px);
+    line-height: 1.35;
+}
+
+.letter-line {
+    margin-bottom: 3px;
+}
+
+.letter-signature {
+    margin-top: 5px;
+    text-align: center !important;
+}
+}
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
